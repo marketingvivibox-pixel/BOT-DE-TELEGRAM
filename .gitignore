@@ -1,0 +1,10 @@
+# Temporales del sistema
+Thumbs.db
+desktop.ini
+.DS_Store
+~$*
+*.tmp
+
+# Secretos — nunca versionar (ver D-016)
+*.env
+secrets*
