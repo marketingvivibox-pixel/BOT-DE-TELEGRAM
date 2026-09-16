@@ -140,3 +140,10 @@ código, que devuelve filas normalizadas al esquema común. El ejecutor no lee f
 adaptador. Una fuente de forma conocida se agrega con una fila y cero código; una de forma nueva
 agrega además un adaptador corto. Motivo: sin esta separación, «configurable» se degrada a un
 `if` por fuente dentro del ejecutor.
+
+## D-024 · Repositorio privado de GitHub como remoto
+
+El repositorio local conserva la rama `main` y usa como remoto `origin` el repositorio privado
+`https://github.com/marketingvivibox-pixel/BOT-DE-TELEGRAM`. Esta decisión sustituye únicamente el
+estado «sin remoto» de D-015 y añade respaldo externo; D-016 sigue vigente y prohíbe guardar tokens,
+claves u otros secretos en el repositorio o su historial.

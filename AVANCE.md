@@ -1,6 +1,6 @@
 # AVANCE — Estado
 
-Actualizado: 2026-08-31 · Leer al continuar el trabajo pendiente.
+Actualizado: 2026-09-16 · Leer al continuar el trabajo pendiente.
 
 ## Hecho
 
@@ -17,6 +17,8 @@ Actualizado: 2026-08-31 · Leer al continuar el trabajo pendiente.
   publicación) y el proyecto de Apps Script del bot; esquemas volcados en `BRIEF.md` §3.
 - Acordada la capa intermedia: catálogo de fuentes, índice, router con IA y ejecutor
   (`BRIEF.md` §4, decisiones D-017 a D-021).
+- Creado el repositorio privado `marketingvivibox-pixel/BOT-DE-TELEGRAM`; la copia local quedó
+  conectada a `origin/main` y su ruta y URL fueron registradas en Hidra.
 
 ## Falta
 

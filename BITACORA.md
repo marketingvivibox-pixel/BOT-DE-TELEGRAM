@@ -2,6 +2,16 @@
 
 Más reciente arriba. Las entradas anteriores viven en `BITACORA-ARCHIVO.md`.
 
+## 2026-09-16 · Repositorio privado conectado
+
+**Sesión:** Codex.
+
+- **Hecho:** creado `marketingvivibox-pixel/BOT-DE-TELEGRAM` como repositorio privado y subida la
+  rama `main`; la copia local quedó conectada a `origin/main`.
+- **Decidido:** D-024 sustituye el estado «sin remoto» de D-015 y mantiene los secretos fuera del repo.
+- **Encontrado:** GitHub confirmó visibilidad `PRIVATE`; Hidra ya referencia la ruta local y la URL.
+- **Pendiente:** continuar la definición de la base de producción antes de construir el motor.
+
 ## 2026-08-31 · Fuentes reales y capa intermedia
 
 **Sesión:** Claude/Cowork.

@@ -1,6 +1,6 @@
 # PROTOCOLO — Documento principal
 
-Actualizado: 2026-08-31 · Proyecto: Vivibox — Bot de informes por chat (Telegram/WhatsApp).
+Actualizado: 2026-09-16 · Proyecto: Vivibox — Bot de informes por chat (Telegram/WhatsApp).
 
 Este es el **único archivo de lectura obligatoria**. Todo lo demás se lee solo cuando la tarea lo
 exige, según la tabla de la sección 3. Leer la carpeta completa en cada sesión es un error: gasta
@@ -96,11 +96,13 @@ la más antigua al inicio de `BITACORA-ARCHIVO.md` sin reescribirla.
 
 ## 5. Control de versiones
 
-La carpeta es un repositorio git (rama `main`, sin remoto). Es el respaldo real contra ediciones
-simultáneas de tres agentes.
+La carpeta es un repositorio git en la rama `main`, conectado al remoto privado
+`https://github.com/marketingvivibox-pixel/BOT-DE-TELEGRAM`. El historial local y el remoto son el
+respaldo contra ediciones simultáneas y pérdida del equipo.
 
 - Al cerrar una sesión con trabajo real: `git add -A` y un commit cuyo título diga qué cambió y
   entre paréntesis el agente. Ejemplo: `Ajusta el sondeo getUpdates (Codex)`.
+- Después de confirmar el commit, subir `main` a `origin` y verificar que quede sincronizado.
 - Antes de escribir: `git status`. Si hay cambios sin commitear de otra sesión, commitearlos o
   consultarlo antes de encimar trabajo.
 - Para ver qué cambió desde la última sesión: `git log --oneline -5` y `git diff HEAD~1`.

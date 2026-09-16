@@ -1,6 +1,6 @@
 # BRIEF — Ficha técnica
 
-Actualizado: 2026-08-31 · **Leer solo la sección que la tarea pida** (ver tabla 3 de `PROTOCOLO.md`).
+Actualizado: 2026-09-16 · **Leer solo la sección que la tarea pida** (ver tabla 3 de `PROTOCOLO.md`).
 
 Índice: 1 Objetivo · 2 Recursos e IDs · 3 Fuentes de datos y esquema · 4 Arquitectura de la capa
 intermedia · 5 Secretos y configuración · 6 Limitaciones conocidas · 7 Próximo paso operativo
@@ -29,6 +29,8 @@ Plan a futuro: sumar a estas mismas bases información de ventas y de campañas 
   - URL: https://script.google.com/u/0/home/projects/1Ip8I1RlhtxIVoqHNxXSjJNEg0vDYANi0mDleDP15yBBYuC521JfKd2RQ/edit
 - Bot de Telegram: nombre/handle `por confirmar` · chat_id de pruebas `por confirmar`
 - Sitio de informes (Firebase Hosting): https://vivibox-analisis.web.app
+- Repositorio privado de GitHub: https://github.com/marketingvivibox-pixel/BOT-DE-TELEGRAM
+- Copia local del repositorio: `C:\Users\D. Cordova\Desktop\Vivibox - Bot de informes`
 - Propietario de los archivos: `marketingvivibox@gmail.com`
 - Zona horaria: `America/Lima`
 
