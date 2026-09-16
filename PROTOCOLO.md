@@ -18,8 +18,12 @@ la entrega se apoya en el sitio estático ya existente en Firebase Hosting.
 - Respuesta al usuario: **confirmación instantánea** con el tiempo aproximado de espera, y luego
   el informe o el dato.
 - Redacción analítica con IA sobre la capa **gratuita** de Gemini API, aprobada por gerencia.
-- Alcance de la v1: datos publicitarios sobre una Sheet de prueba (5 cuentas de muestra). En
-  producción la base recibirá **más de 30 cuentas** de redes sociales.
+- **Capa intermedia**: el bot no consulta las hojas directo. Un catálogo declara las fuentes, un
+  índice ubica los datos, un router con IA traduce el mensaje a un plan de consulta JSON y un
+  ejecutor lee solo lo necesario y cruza fuentes. Ver `BRIEF.md` §4 y D-017 a D-021.
+- Fuentes actuales: consolidado diario (`fecha × plataforma × cuenta`) y detalle por publicación,
+  ambas de contenido orgánico. Se sumarán ventas y campañas.
+- Alcance de la v1: 5 cuentas de muestra. En producción la base recibirá **más de 30 cuentas**.
 - Estado actual: **estructura de la base de producción y alcance final de la v1 aún por definir.**
   No construir antes de validar la estructura.
 

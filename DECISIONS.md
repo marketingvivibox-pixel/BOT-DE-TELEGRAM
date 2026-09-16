@@ -88,3 +88,55 @@ El token del bot de Telegram y las API keys viven exclusivamente en las Propieda
 proyecto de Apps Script. En la carpeta se documenta solo el **nombre** de cada propiedad, nunca su
 valor. Motivo: la carpeta está versionada en git y la abren tres agentes distintos; un secreto
 commiteado queda en el historial de forma permanente.
+
+## D-017 · Capa intermedia entre el chat y los datos
+
+El bot no consulta las hojas directamente. Entre el mensaje y la respuesta hay un router que
+interpreta el pedido, un ejecutor que resuelve la consulta y una etapa de redacción. Motivo: las
+fuentes van a crecer (ventas, campañas) y sin esa capa cada fuente nueva obliga a reescribir el
+bot. Detalle en la sección 4 de `BRIEF.md`.
+
+## D-018 · Catálogo de fuentes en vez de fuentes cableadas
+
+Las fuentes se declaran como filas de una hoja `_FUENTES` (id, spreadsheet, pestaña, grano, llave,
+columnas, métricas, rango de fechas). Agregar una fuente es agregar una fila, no editar código.
+
+## D-019 · Índice previo, no barrido
+
+Una hoja `_INDICE` mapea `fecha × plataforma × cuenta × fuente` al rango de filas correspondiente y
+se reconstruye con un activador nocturno. El bot ubica por índice y lee solo el rango y las
+columnas necesarias. Motivo: Sheets no es una base de datos y las cuotas de Apps Script se agotan
+leyendo rangos completos.
+
+## D-020 · La IA interpreta y redacta, no consulta
+
+Gemini se usa en dos puntos separados: convertir el mensaje en un plan de consulta JSON, y redactar
+sobre el resultado ya agregado. Nunca recibe la base ni decide qué filas leer. Motivo: controlar el
+consumo de la capa gratuita y que un error del modelo no se traduzca en datos inventados. Un plan
+mal formado se rechaza y se le pide precisión al usuario.
+
+## D-021 · Cruce por id_cuenta, no por nombre
+
+La llave de cruce entre fuentes es `fecha + plataforma + id_cuenta`. `id_cuenta` se trae desde la
+API de cada plataforma en el paso de ingesta; hoy está vacío porque ese paso todavía no corre.
+`nombre_cuenta` queda como etiqueta legible, nunca como llave. El router y el ejecutor se escriben
+asumiendo `id_cuenta` desde el inicio, aunque en la muestra actual todavía no esté poblado.
+
+## D-022 · La capa vive en el proyecto del bot, no en las fuentes
+
+Todo el código de la capa intermedia reside en el proyecto de Apps Script del bot, que es autónomo.
+Las fuentes se leen desde fuera con `SpreadsheetApp.openById(...)`. Motivo: hay y habrá fuentes cuyo
+Apps Script no podemos ni debemos tocar —sea por la regla de solo lectura de Meta y TikTok, sea
+porque pertenecen a otro equipo—. El único requisito para sumar una fuente es permiso de lectura
+para la cuenta que ejecuta el bot; su código nunca se modifica.
+
+Las hojas de control `_FUENTES` e `_INDICE` viven en un Sheet de control propio del bot, no dentro
+de una hoja de datos ajena.
+
+## D-023 · Adaptadores por tipo de fuente
+
+Cada fuente declara en `_FUENTES` un `tipo_fuente` que apunta a una función lectora registrada en el
+código, que devuelve filas normalizadas al esquema común. El ejecutor no lee fuentes: las pide al
+adaptador. Una fuente de forma conocida se agrega con una fila y cero código; una de forma nueva
+agrega además un adaptador corto. Motivo: sin esta separación, «configurable» se degrada a un
+`if` por fuente dentro del ejecutor.
